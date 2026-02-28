@@ -1,9 +1,20 @@
-#### Hosting vLLM
+# Hosting vLLM for Inference (Local)
+
+## Designated Setup
+
+| Item                         | Value                          |
+| ---------------------------- | ------------------------------ |
+| Target model                 | Qwen/Qwen3-4B                  |
+| Target model (Pre-quantized) | Qwen/Qwen3-4B-AWQ              |
+| Draft model                  | Qwen/Qwen3-0.6B                |
+| GPU                          | NVIDIA RTX 4060 Ti (16GB VRAM) |
+
+## Note
 
 There has been some issues when I try to host vLLM using the official docker image.
 Therefore, here I provided the uv commands instead.
 
-Vanilla version
+## Vanilla version
 
 ```bash
 # Here I set max_model_len to 8192 due to memory constraints
@@ -14,7 +25,7 @@ uv run --active \
     --override-generation-config '{"temperature": 0}'
 ```
 
-With speculative decoding
+## With speculative decoding
 
 ```bash
 uv run --active \
@@ -25,7 +36,7 @@ uv run --active \
     --speculative_config '{"method": "ngram", "model": "Qwen/Qwen3-0.6B", "num_speculative_tokens": 5}'
 ```
 
-With Quantization (vLLM)
+## With Quantization (vLLM)
 
 ```bash
 uv run --active \
@@ -36,7 +47,7 @@ uv run --active \
     --quantization bitsandbytes
 ```
 
-With Quantization (Pre-quantized model)
+## With Quantization (Pre-quantized model)
 
 ```bash
 uv run --active \
@@ -46,7 +57,7 @@ uv run --active \
     --override-generation-config '{"temperature": 0}'
 ```
 
-With speculative decoding + Quantization (Pre-quantized model)
+## With speculative decoding + Quantization (Pre-quantized model)
 
 ```bash
 uv run --active \

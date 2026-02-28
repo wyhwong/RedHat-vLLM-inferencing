@@ -1,4 +1,15 @@
-Vanilla version
+# Hosting vLLM for Inference (Cloud)
+
+## Designated Setup
+
+| Item                         | Value                    |
+| ---------------------------- | ------------------------ |
+| Target model                 | Qwen/Qwen3-32B           |
+| Target model (Pre-quantized) | Qwen/Qwen3-32B-AWQ       |
+| Draft model                  | Qwen/Qwen3-14B-AWQ       |
+| GPU                          | NVIDIA B200 (180GB VRAM) |
+
+## Vanilla version
 
 ```bash
 uv run --active \
@@ -7,7 +18,7 @@ uv run --active \
     --override-generation-config '{"temperature": 0}'
 ```
 
-With speculative decoding
+## With speculative decoding
 
 ```bash
 uv run --active \
@@ -17,7 +28,7 @@ uv run --active \
     --speculative_config '{"method": "ngram", "model": "Qwen/Qwen3-14B-AWQ", "num_speculative_tokens": 5}'
 ```
 
-With Quantization (vLLM)
+## With Quantization (vLLM)
 
 ```bash
 uv run --active \
@@ -27,7 +38,7 @@ uv run --active \
     --quantization bitsandbytes
 ```
 
-With Quantization (Pre-quantized model)
+## With Quantization (Pre-quantized model)
 
 ```bash
 uv run --active \
@@ -36,7 +47,7 @@ uv run --active \
     --override-generation-config '{"temperature": 0}'
 ```
 
-With speculative decoding + Quantization (Pre-quantized model)
+## With speculative decoding + Quantization (Pre-quantized model)
 
 ```bash
 uv run --active \

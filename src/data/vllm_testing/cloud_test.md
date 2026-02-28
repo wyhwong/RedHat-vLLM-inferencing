@@ -1,53 +1,85 @@
-# Setup
-Target model: Qwen/Qwen3-32B
-Target model (Pre-quantized): Qwen/Qwen3-32B-AWQ
-Draft model: Qwen/Qwen3-8B-AWQ
-GPU: NVIDIA B200 (180GB VRAM)
+# Testing results of vLLM on cloud machine
 
-# Vanilla
-Total run time: 44.99 seconds
-Total tokens generated: 57373
-Throughput (tokens/sec): 1275.15
-Throughput (requests/sec): 1.111
+This README contains the testing results of vLLM on a cloud machine with NVIDIA B200 GPU. The tests are conducted on the Qwen/Qwen3-32B model and its pre-quantized version, Qwen/Qwen3-32B-AWQ. The results include various metrics such as total run time, total tokens generated, throughput in tokens per second, and throughput in requests per second. The tests also cover different configurations, including vanilla, prompt engineering, speculative decoding, quantization, and combinations of these techniques.
 
-# Prompt Engineering
-Total run time: 16.96 seconds
-Total tokens generated: 20746
-Throughput (tokens/sec): 1222.96
-Throughput (requests/sec): 2.947
+## Designated Setup
 
-# Speculative Decoding
-Total run time: 52.52 seconds
-Total tokens generated: 57302
-Throughput (tokens/sec): 1091.03
-Throughput (requests/sec): 0.952
+| Item                         | Value                    |
+| ---------------------------- | ------------------------ |
+| Target model                 | Qwen/Qwen3-32B           |
+| Target model (Pre-quantized) | Qwen/Qwen3-32B-AWQ       |
+| Draft model                  | Qwen/Qwen3-14B-AWQ       |
+| GPU                          | NVIDIA B200 (180GB VRAM) |
 
-# Quantization (vLLM)
-Total run time: 112.19 seconds
-Total tokens generated: 53134
-Throughput (tokens/sec): 473.59
-Throughput (requests/sec): 0.446
+## Vanilla
 
-# Quantization (Pre-quantized model)
-Total run time: 35.35 seconds
-Total tokens generated: 58157
-Throughput (tokens/sec): 1645.24
-Throughput (requests/sec): 1.414
+| Metric                   | Test 1  |
+|--------------------------|---------|
+|Total run time (sec)      | 44.99   |
+|Total tokens generated    | 57373   |
+|Throughput (tokens/sec)   | 1275.15 |
+|Throughput (requests/sec) | 1.111   |
 
-# 1+2+3
-Total run time: 24.99 seconds
-Total tokens generated: 20726
-Throughput (tokens/sec): 829.51
-Throughput (requests/sec): 2.001
 
-# 2+3+5
-Total run time: 18.14 seconds
-Total tokens generated: 20335
-Throughput (tokens/sec): 1121.12
-Throughput (requests/sec): 2.757
+## Prompt Engineering
 
-# 2+5
-Total run time: 15.32 seconds
-Total tokens generated: 20787
-Throughput (tokens/sec): 1656.87
-Throughput (requests/sec): 3.264
+| Metric                   | Test 1  |
+|--------------------------|---------|
+|Total run time (sec)      | 16.96   |
+|Total tokens generated    | 20746   |
+|Throughput (tokens/sec)   | 1222.96 |
+|Throughput (requests/sec) | 2.947   |
+
+## Speculative Decoding
+
+| Metric                   | Test 1  |
+|--------------------------|---------|
+|Total run time (sec)      | 52.52   |
+|Total tokens generated    | 57302   |
+|Throughput (tokens/sec)   | 1091.03 |
+|Throughput (requests/sec) | 0.952   |
+
+## Quantization (vLLM)
+
+| Metric                   | Test 1  |
+|--------------------------|---------|
+|Total run time (sec)      | 112.19  |
+|Total tokens generated    | 53134   |
+|Throughput (tokens/sec)   | 473.59  |
+|Throughput (requests/sec) | 0.446   |
+
+## Quantization (Pre-quantized model)
+
+| Metric                   | Test 1  |
+|--------------------------|---------|
+|Total run time (sec)      | 35.35   |
+|Total tokens generated    | 58157   |
+|Throughput (tokens/sec)   | 1645.24 |
+|Throughput (requests/sec) | 1.414   |
+
+## Prompt Engineering + Speculative Decoding
+
+| Metric                   | Test 1  |
+|--------------------------|---------|
+|Total run time (sec)      | 24.99   |
+|Total tokens generated    | 20726   |
+|Throughput (tokens/sec)   | 829.51  |
+|Throughput (requests/sec) | 2.001   |
+
+## Prompt Engineering + Speculative Decoding + Quantization (Pre-quantized model)
+
+| Metric                   | Test 1  |
+|--------------------------|---------|
+|Total run time (sec)      | 18.14   |
+|Total tokens generated    | 20335   |
+|Throughput (tokens/sec)   | 1121.12 |
+|Throughput (requests/sec) | 2.757   |
+
+## Prompt Engineering + Quantization (Pre-quantized model)
+
+| Metric                   | Test 1  |
+|--------------------------|---------|
+|Total run time (sec)      | 15.32   |
+|Total tokens generated    | 20787   |
+|Throughput (tokens/sec)   | 1656.87 |
+|Throughput (requests/sec) | 3.264   |

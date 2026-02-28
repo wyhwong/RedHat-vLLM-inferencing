@@ -1,0 +1,4 @@
+{% for m in messages -%}
+{{ m['role']|capitalize }}: {{ m['content'] }}
+{% endfor -%}
+Assistant:

@@ -1,134 +1,92 @@
-# Setup
-Target model: Qwen/Qwen3-4B
-Target model (Pre-quantized): Qwen/Qwen3-4B-AWQ
-Draft model: Qwen/Qwen3-0.6B
-GPU: NVIDIA RTX 4060 Ti (16GB VRAM)
+# Testing results of vLLM on local machine
 
-# Vanilla
-## Test 1
-Total run time: 164.51 seconds
-Total tokens generated: 51001
-Throughput (tokens/sec): 310.01
-Throughput (requests/sec): 0.304
-## Test 2
-Total run time: 170.17 seconds
-Total tokens generated: 53003
-Throughput (tokens/sec): 311.48
-Throughput (requests/sec): 0.294
-## Test 3
-Total run time: 163.35 seconds
-Total tokens generated: 50941
-Throughput (tokens/sec): 311.84
-Throughput (requests/sec): 0.306
+This README contains the testing results of vLLM on a local machine with NVIDIA RTX 4060 Ti GPU. The tests are conducted on the Qwen/Qwen3-4B model and its pre-quantized version, Qwen/Qwen3-4B-AWQ. The results include various metrics such as total run time, total tokens generated, throughput in tokens per second, and throughput in requests per second. The tests also cover different configurations, including vanilla, prompt engineering, speculative decoding, quantization, and combinations of these techniques.
 
-# Prompt Engineering
-## Test 1
-Total run time: 45.67 seconds
-Total tokens generated: 16558
-Throughput (tokens/sec): 362.59
-Throughput (requests/sec): 1.095
-## Test 2
-Total run time: 44.37 seconds
-Total tokens generated: 16746
-Throughput (tokens/sec): 377.41
-Throughput (requests/sec): 1.127
-## Test 3
-Total run time: 40.70 seconds
-Total tokens generated: 16092
-Throughput (tokens/sec): 395.34
-Throughput (requests/sec): 1.228
+## Designated Setup
 
-# Speculative Decoding
-## Test 1
-Total run time: 202.23 seconds
-Total tokens generated: 53373
-Throughput (tokens/sec): 263.92
-Throughput (requests/sec): 0.247
-Draft acceptance rate: ~30-50%
-## Test 2
-Total run time: 196.72 seconds
-Total tokens generated: 51990
-Throughput (tokens/sec): 264.28
-Throughput (requests/sec): 0.254
-## Test 3
-Total run time: 184.76 seconds
-Total tokens generated: 50619
-Throughput (tokens/sec): 273.97
-Throughput (requests/sec): 0.271
+| Item                         | Value                          |
+| ---------------------------- | ------------------------------ |
+| Target model                 | Qwen/Qwen3-4B                  |
+| Target model (Pre-quantized) | Qwen/Qwen3-4B-AWQ              |
+| Draft model                  | Qwen/Qwen3-0.6B                |
+| GPU                          | NVIDIA RTX 4060 Ti (16GB VRAM) |
 
-# Quantization (vLLM)
-## Test 1
-Total run time: 332.04 seconds
-Total tokens generated: 59507
-Throughput (tokens/sec): 179.21
-Throughput (requests/sec): 0.151
+## Vanilla
 
-# Quantization (Pre-quantized model)
-## Test 1
-Total run time: 93.02 seconds
-Total tokens generated: 57761
-Throughput (tokens/sec): 620.93
-Throughput (requests/sec): 0.537
-## Test 2
-Total run time: 89.62 seconds
-Total tokens generated: 57929
-Throughput (tokens/sec): 646.41
-Throughput (requests/sec): 0.558
-## Test 3
-Total run time: 87.09 seconds
-Total tokens generated: 57530
-Throughput (tokens/sec): 660.62
-Throughput (requests/sec): 0.574
+| Metric                   | Test 1 | Test 2 | Test 3 |
+|--------------------------|--------|--------|--------|
+|Total run time (sec)      | 164.51 | 170.17 | 163.35 |
+|Total tokens generated    | 51001  | 53003  | 50941  |
+|Throughput (tokens/sec)   | 310.01 | 311.48 | 311.84 |
+|Throughput (requests/sec) | 0.304  | 0.294  | 0.306  |
 
-# 1+2+3
-## Test 1
-Total run time: 53.25 seconds
-Total tokens generated: 16390
-Throughput (tokens/sec): 307.80
-Throughput (requests/sec): 0.939
-Draft acceptance rate: ~40-50%
-## Test 2
-Total run time: 50.96 seconds
-Total tokens generated: 16367
-Throughput (tokens/sec): 321.18
-Throughput (requests/sec): 0.981
-## Test 3
-Total run time: 48.93 seconds
-Total tokens generated: 16222
-Throughput (tokens/sec): 331.55
-Throughput (requests/sec): 1.022
+## Prompt Engineering
 
-# 2+3+5
-## Test 1
-Total run time: 37.12 seconds
-Total tokens generated: 20171
-Throughput (tokens/sec): 543.46
-Throughput (requests/sec): 1.347
-Draft acceptance rate: ~30-70%
-## Test 2
-Total run time: 36.80 seconds
-Total tokens generated: 20355
-Throughput (tokens/sec): 553.18
-Throughput (requests/sec): 1.359
-## Test 3
-Total run time: 38.51 seconds
-Total tokens generated: 20125
-Throughput (tokens/sec): 522.52
-Throughput (requests/sec): 1.298
+| Metric                   | Test 1 | Test 2 | Test 3 |
+|--------------------------|--------|--------|--------|
+|Total run time (sec)      | 45.67  | 44.37  | 40.70  |
+|Total tokens generated    | 16558  |  16746 | 16092  |
+|Throughput (tokens/sec)   | 362.59 | 377.41 | 395.34 |
+|Throughput (requests/sec) | 1.095  | 1.127  | 1.228  |
 
-# 2+5
-## Test 1
-Total run time: 22.34 seconds
-Total tokens generated: 20272
-Throughput (tokens/sec): 907.42
-Throughput (requests/sec): 2.238
-## Test 2
-Total run time: 23.89 seconds
-Total tokens generated: 20589
-Throughput (tokens/sec): 861.71
-Throughput (requests/sec): 2.093
-## Test 3
-Total run time: 23.9 seconds
-Total tokens generated: 20566
-Throughput (tokens/sec): 860.87
-Throughput (requests/sec): 2.093
+## Speculative Decoding
+
+| Metric                   | Test 1 | Test 2 | Test 3 |
+|--------------------------|--------|--------|--------|
+|Total run time (sec)      | 202.23 | 196.72 | 184.76 |
+|Total tokens generated    | 53373  | 51990  | 50619  |
+|Throughput (tokens/sec)   | 263.92 | 264.28 | 273.97 |
+|Throughput (requests/sec) | 0.247  | 0.254  | 0.271  |
+
+Note: The draft acceptance rate is around 30-50%, which means that around 30-50% of the generated drafts are accepted and used for further processing.
+
+## Quantization (vLLM)
+
+| Metric                   | Test 1 |
+|--------------------------|--------|
+|Total run time (sec)      | 332.04 |
+|Total tokens generated    | 59507  |
+|Throughput (tokens/sec)   | 179.21 |
+|Throughput (requests/sec) | 0.151  |
+
+Note: Only one test is conducted because of the long run time.
+
+## Quantization (Pre-quantized model)
+
+| Metric                   | Test 1 | Test 2 | Test 3 |
+|--------------------------|--------|--------|--------|
+|Total run time (sec)      | 93.02  | 89.62  | 87.09  |
+|Total tokens generated    | 57761  | 57929  | 57530  |
+|Throughput (tokens/sec)   | 620.93 | 646.41 | 660.62 |
+|Throughput (requests/sec) | 0.537  | 0.558  | 0.574  |
+
+## Prompt Engineering + Speculative Decoding
+
+| Metric                   | Test 1 | Test 2 | Test 3 |
+|--------------------------|--------|--------|--------|
+|Total run time (sec)      | 53.25  | 50.96  | 48.93  |
+|Total tokens generated    | 16390  | 16367  | 16222  |
+|Throughput (tokens/sec)   | 307.80 | 321.18 | 331.55 |
+|Throughput (requests/sec) | 0.939  | 0.981  | 1.022  |
+
+Note: The draft acceptance rate is around 40-50%, slightly higher than the vanilla speculative decoding.
+
+## Prompt Engineering + Speculative Decoding + Quantization (Pre-quantized model)
+
+| Metric                   | Test 1 | Test 2 | Test 3 |
+|--------------------------|--------|--------|--------|
+|Total run time (sec)      | 37.12  | 36.80  | 38.51  |
+|Total tokens generated    | 20171  | 20355  | 20125  |
+|Throughput (tokens/sec)   | 543.46 | 553.18 | 522.52 |
+|Throughput (requests/sec) | 1.347  | 1.359  | 1.298  |
+
+Note: The draft acceptance rate is around 30-60%, which has larger variance.
+
+## Prompt Engineering + Quantization (Pre-quantized model)
+
+| Metric                   | Test 1 | Test 2 | Test 3 |
+|--------------------------|--------|--------|--------|
+|Total run time (sec)      | 22.34  | 23.89  | 23.90  |
+|Total tokens generated    | 20272  | 20589  | 20566  |
+|Throughput (tokens/sec)   | 907.42 | 861.71 | 860.87 |
+|Throughput (requests/sec) | 2.238  | 2.093  | 2.093  |
