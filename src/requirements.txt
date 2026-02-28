@@ -40,6 +40,8 @@ fsspec==2026.1.0
     # via
     #   torch
     #   vllm-inferencing
+hf-transfer==0.1.9
+    # via vllm-inferencing
 idna==3.11
     # via requests
 ipykernel==7.1.0

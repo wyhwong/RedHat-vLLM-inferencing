@@ -16,6 +16,7 @@ dependencies = [
     "nbformat (>=5.10.4,<6.0.0)",
     "torch-c-dlpack-ext>=0.1.5",
     "bitsandbytes>=0.49.1",
+    "hf-transfer>=0.1.9",
 ]
 
 [tool.black]
