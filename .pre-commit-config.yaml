@@ -1,0 +1,79 @@
+fail_fast: true
+
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v6.0.0
+  hooks:
+  - id: check-toml
+  - id: check-yaml
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+  # - id: check-added-large-files
+  - id: forbid-new-submodules
+  - id: detect-private-key
+  # - id: no-commit-to-branch
+  #   args: ["--branch", "main"]
+
+# - repo: https://github.com/kynan/nbstripout
+#   rev: 0.8.2
+#   hooks:
+#   - id: nbstripout
+
+- repo: https://github.com/psf/black
+  rev: 25.12.0
+  hooks:
+  - id: black
+    args: [
+      "--config", "./src/pyproject.toml",
+      "src"
+    ]
+    additional_dependencies: [ "black[toml]" ]
+    always_run: true
+    verbose: true
+
+# - repo: https://github.com/pylint-dev/pylint
+#   rev: v4.0.4
+#   hooks:
+#   - id: pylint
+#     args: ["--rcfile", "./.pylintrc", "src"]
+#     always_run: true
+#     verbose: true
+
+- repo: https://github.com/pycqa/isort
+  rev: 7.0.0
+  hooks:
+  - id: isort
+    args: [
+      "--profile", "black",
+      "--settings-path", "./src/pyproject.toml",
+      "src"
+    ]
+    additional_dependencies: [ "isort[toml]" ]
+    always_run: true
+    verbose: true
+
+# - repo: https://github.com/rubik/xenon
+#   rev: v0.9.0
+#   hooks:
+#   - id: xenon
+#     args: [
+#       "--max-absolute=C",
+#       "--max-modules=B",
+#       "--max-average=A",
+#       "--exclude=*test_*",
+#       "src"
+#     ]
+#     always_run: true
+#     verbose: true
+
+- repo: https://github.com/astral-sh/uv-pre-commit
+  rev: 0.9.28
+  hooks:
+  - id: uv-lock
+    args: ["--project", "src"]
+    always_run: true
+    verbose: true
+  - id: uv-export
+    args: ["--project", "src", "-o", "./src/requirements.txt", "--no-hashes"]
+    always_run: true
+    verbose: true
