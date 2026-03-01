@@ -4,9 +4,7 @@
 
 | Item                         | Value                          |
 | ---------------------------- | ------------------------------ |
-| Target model                 | Qwen/Qwen3-4B                  |
-| Target model (Pre-quantized) | Qwen/Qwen3-4B-AWQ              |
-| Draft model                  | Qwen/Qwen3-0.6B                |
+| Model                        | qwen3:4b                       |
 | GPU                          | NVIDIA RTX 4060 Ti (16GB VRAM) |
 
 ## OLLAMA_NUM_PARALLEL=4

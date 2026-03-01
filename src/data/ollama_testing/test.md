@@ -1,6 +1,6 @@
 # Testing results of Ollama on local machine
 
-This README contains the testing results of Ollama on a local machine with NVIDIA RTX 4060 Ti GPU. The tests are conducted on the Qwen/Qwen3-4B model. The results include various metrics such as total run time, total tokens generated, throughput in tokens per second, and throughput in requests per second.
+This README contains the testing results of Ollama on a local machine with NVIDIA RTX 4060 Ti GPU. The tests are conducted on the qwen3:4b model. The results include various metrics such as total run time, total tokens generated, throughput in tokens per second, and throughput in requests per second.
 
 ## Designated Setup
 
