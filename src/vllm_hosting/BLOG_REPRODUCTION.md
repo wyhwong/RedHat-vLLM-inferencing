@@ -10,8 +10,7 @@
 
 ## Note
 
-This README is for reproducing the results in [How Speculative Decoding Boosts vLLM Performance by up to 2.8x, 2024](https://blog.vllm.ai/2024/10/17/spec-decode.html
-).
+This README is for reproducing the results in [How Speculative Decoding Boosts vLLM Performance by up to 2.8x, 2024](https://blog.vllm.ai/2024/10/17/spec-decode.html).
 
 ## Vanilla version
 
