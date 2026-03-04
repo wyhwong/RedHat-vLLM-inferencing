@@ -42,12 +42,12 @@ Note: The draft acceptance rate is around 30-50%, which means that around 30-50%
 
 ## Quantization (vLLM)
 
-| Metric                   | Test 1 |
-|--------------------------|--------|
-|Total run time (sec)      | 332.04 |
-|Total tokens generated    | 59507  |
-|Throughput (tokens/sec)   | 179.21 |
-|Throughput (requests/sec) | 0.151  |
+| Metric                   | Test 1 (bitsandbytes) | Test 2 (FP8) |
+|--------------------------|-----------------------|--------------|
+|Total run time (sec)      |         332.04        |    824.42    |
+|Total tokens generated    |         59507         |    51148     |
+|Throughput (tokens/sec)   |         179.21        |    62.04     |
+|Throughput (requests/sec) |         0.151         |    0.061     |
 
 Note: Only one test is conducted because of the long run time.
 

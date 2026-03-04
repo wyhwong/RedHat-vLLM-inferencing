@@ -30,9 +30,11 @@ In this talk, we begin with a quick introduction to LLM inference, then contrast
 
 ## Related Resources
 
-- Powerpoint Slides: View on OneDrive
+- Powerpoint Slides: [View on OneDrive](https://1drv.ms/p/c/7adfdf652c41fb6c/IQCQLBuD6L5SQp-1BF9-yh2eAcN2yYvzUR9KphCrrzNmEK4)
 
 - Talk Homepage: [vLLM Hong Kong Meetup](https://www.vantagemind.com/events/vLLM/260307/vLLM-HK-Meetup_Session-Abstracts.html#abs-offline-to-online)
+
+For the slides, you may also find them in [slides_backup](./slides_backup) directory.
 
 ## Acknowledgement
 

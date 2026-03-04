@@ -39,12 +39,13 @@ uv run --active \
 ## With Quantization (vLLM)
 
 ```bash
+# <method>: bitsandbytes, FP8
 uv run --active \
     --with vllm \
     vllm serve Qwen/Qwen3-4B \
     --max_model_len 8192 \
     --override-generation-config '{"temperature": 0}' \
-    --quantization bitsandbytes
+    --quantization <method>
 ```
 
 ## With Quantization (Pre-quantized model)
